@@ -50,11 +50,18 @@
        ║             HERO                ║
        ╚══════════════════════════════════╝ -->
   <section class="hero">
-    <div class="hero-bg-pattern"></div>
+    <!-- Full-hero background video -->
+    <video
+      class="hero-bg-video"
+      src="globe-video.mp4"
+      autoplay loop muted playsinline
+      aria-hidden="true"
+    ></video>
+    <!-- Dark overlay so text stays readable -->
+    <div class="hero-bg-overlay"></div>
     <div class="hero-grid-overlay"></div>
 
-    <!-- Three.js 3-D World Globe — injected by main.js -->
-    <div class="hero-globe-wrap" id="globeWrap"></div>
+
 
     <div class="hero-content">
       <div class="hero-badge">
@@ -635,7 +642,7 @@
         <div class="footer-socials">
           <a href="https://wa.me/13124791945" class="social-btn" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
           <a href="https://www.tiktok.com/@sweetyama2024/photo/7628237638469684494?is_from_webapp=1&sender_device=pc&web_id=7613501937928963591" class="social-btn" aria-label="Tiktok" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="https://web.facebook.com/hettie.mee" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://web.facebook.com/hettie.mee" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
           <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
         </div>

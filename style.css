@@ -127,7 +127,7 @@ nav {
   height: 72px;
   padding: 0 5%;
   display: flex; align-items: center; justify-content: space-between;
-  background: rgba(11,29,58,0.97);
+  background: rgba(11,29,58,1);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(201,168,76,0.18);
   transition: box-shadow 0.3s;
@@ -164,7 +164,7 @@ nav.scrolled { box-shadow: 0 4px 28px rgba(0,0,0,0.32); }
 .nav-links a {
   text-decoration: none;
   font-size: 13px; font-weight: 500;
-  color: rgba(255,255,255,0.72);
+  color: #ffffff;
   letter-spacing: 0.3px;
   transition: color var(--transition);
 }
@@ -198,47 +198,42 @@ nav.scrolled { box-shadow: 0 4px 28px rgba(0,0,0,0.32); }
 ───────────────────────────────────────── */
 .hero {
   min-height: 100vh;
-  background: var(--navy);
+  background: transparent;   /* video shows through */
   position: relative;
   display: flex; align-items: center;
   overflow: hidden;
   padding: 96px 5% 60px;
 }
 
-.hero-bg-pattern {
-  position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(circle at 18% 55%, rgba(201,168,76,0.09) 0%, transparent 48%),
-    radial-gradient(circle at 78% 18%, rgba(201,168,76,0.06) 0%, transparent 38%),
-    linear-gradient(145deg, #0B1D3A 0%, #0e2348 55%, #0B1D3A 100%);
+/* hero-bg-video — fills the full hero section */
+.hero-bg-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+/* Dark overlay — keeps text legible over the video */
+.hero-bg-overlay {
+  position: absolute; inset: 0;
+  background: rgba(8, 18, 38, 0.62);
+  z-index: 1;
+  pointer-events: none;
 }
 .hero-grid-overlay {
   position: absolute; inset: 0; pointer-events: none;
+  z-index: 2;
   background-image:
     linear-gradient(rgba(201,168,76,0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(201,168,76,0.035) 1px, transparent 1px);
   background-size: 58px 58px;
 }
 
-/* Globe wrapper */
-.hero-globe-wrap {
-  position: absolute;
-  right: 320px; top: 50%;
-  transform: translateY(-50%);
-  width: 580px; height: 580px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1px solid rgba(201,168,76,0.18);
-  box-shadow:
-    0 0 80px rgba(201,168,76,0.1),
-    inset 0 0 60px rgba(11,29,58,0.55);
-}
-.hero-globe-wrap canvas {
-  display: block; width: 100% !important; height: 100% !important;
-}
+/* Globe video replaced by full-hero background video */
 
 .hero-content {
-  position: relative; z-index: 2;
+  position: relative; z-index: 3;
   max-width: 640px;
 }
 
@@ -271,7 +266,7 @@ nav.scrolled { box-shadow: 0 4px 28px rgba(0,0,0,0.32); }
 }
 .hero-sub {
   font-size: 17px; font-weight: 300; line-height: 1.75;
-  color: rgba(255,255,255,0.68);
+  color: rgba(255,255,255,0.92);
   max-width: 480px; margin-bottom: 36px;
   animation: fadeUp 0.8s 0.26s both;
 }
@@ -290,7 +285,7 @@ nav.scrolled { box-shadow: 0 4px 28px rgba(0,0,0,0.32); }
 }
 .stat-label {
   font-size: 12px; font-weight: 400;
-  color: rgba(255,255,255,0.46); letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.85); letter-spacing: 0.5px;
 }
 
 @keyframes fadeUp {
@@ -572,7 +567,7 @@ section { padding: 92px 5%; }
   font-size: 22px; color: var(--white); margin-bottom: 6px;
 }
 .services-card-main > p {
-  font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 26px;
+  font-size: 14px; color: rgba(255,255,255,0.90); margin-bottom: 26px;
 }
 .service-list { list-style: none; }
 .service-list li {
@@ -617,7 +612,7 @@ section { padding: 92px 5%; }
   padding: 92px 5%;
 }
 .testimonials-title { color: var(--white); }
-.testimonials-desc  { color: rgba(255,255,255,0.48); margin-bottom: 0; }
+.testimonials-desc  { color: rgba(255,255,255,0.88); margin-bottom: 0; }
 #testimonials .section-label { color: var(--gold); }
 #testimonials .section-label::before { background: var(--gold); }
 
@@ -681,7 +676,7 @@ section { padding: 92px 5%; }
   padding: 30px; margin-top: 32px;
 }
 .faq-cta-card h4 { font-size: 18px; color: var(--white); margin-bottom: 8px; }
-.faq-cta-card p  { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 20px; line-height: 1.6; }
+.faq-cta-card p  { font-size: 13px; color: rgba(255,255,255,0.88); margin-bottom: 20px; line-height: 1.6; }
 
 .accordion { display: flex; flex-direction: column; gap: 11px; margin-top: 0; }
 .accordion-item {
@@ -832,7 +827,7 @@ footer {
 }
 .footer-brand p {
   font-size: 14px; line-height: 1.75;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.90);
   margin: 16px 0 22px;
 }
 .footer-socials { display: flex; gap: 9px; }
@@ -849,7 +844,7 @@ footer {
   background: rgba(201,168,76,0.16);
   border-color: rgba(201,168,76,0.35);
 }
-.social-btn i { font-size: 13px; color: rgba(255,255,255,0.6); }
+.social-btn i { font-size: 13px; color: rgba(255,255,255,0.90); }
 
 .footer-col h4 {
   font-family: 'DM Sans', sans-serif;
@@ -862,7 +857,7 @@ footer {
 .footer-col ul li { margin-bottom: 9px; }
 .footer-col ul a {
   text-decoration: none; font-size: 14px;
-  color: rgba(255,255,255,0.42);
+  color: rgba(255,255,255,0.90);
   transition: color 0.2s;
 }
 .footer-col ul a:hover { color: var(--gold); }
@@ -873,7 +868,7 @@ footer {
   display: flex; align-items: center; justify-content: space-between;
   flex-wrap: wrap; gap: 10px;
 }
-.footer-bottom p   { font-size: 13px; color: rgba(255,255,255,0.28); }
+.footer-bottom p   { font-size: 13px; color: rgba(255,255,255,0.85); }
 .footer-bottom a   { color: var(--gold); text-decoration: none; }
 .footer-bottom a:hover { text-decoration: underline; }
 
@@ -908,7 +903,7 @@ footer {
    RESPONSIVE  —  1024px
 ───────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .hero-globe-wrap    { width: 440px; height: 440px; right: -70px; }
+  /* globe-wrap removed */
   .about-layout       { grid-template-columns: 1fr; gap: 50px; }
   .about-visual       { order: -1; justify-content: flex-start; }
   .about-img-frame    { width: 100%; max-width: 420px; height: 340px; }
@@ -939,7 +934,7 @@ footer {
   .hamburger        { display: flex; }
 
   /* Hero */
-  .hero-globe-wrap  { display: none; }
+  /* globe-wrap removed */
   .hero-stats       { gap: 22px; flex-wrap: wrap; }
   .hero-actions     { flex-direction: column; align-items: flex-start; }
   .btn-primary,
